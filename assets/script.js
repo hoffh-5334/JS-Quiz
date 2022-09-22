@@ -1,7 +1,7 @@
 //Global variables
 var score = 0;
 var i = 0;
-var count = 60;
+var count = 50;
 var scoreArray;
 
 
@@ -25,20 +25,20 @@ choices: ["JavaScript", "Just Sayin", "Jelly Sandwich", "Jam Session"],
 a: "JavaScript"
 },
 {
-q: "What does JS stand for?",
-choices: ["Just Sayin", "Jelly Sandwich", "JavaScript", "Jam Session"],
-a: "JavaScript"
+q: "WHat tag do you use to insert JavaScript into an HTML page?",
+choices: ["<h2>", "<JavaScript>", "<script>", "<js>"],
+a: "<script>"
 },
 {
-q: "What does JS stand for?",
-choices: ["Just Sayin", "JavaScript", "Jelly Sandwich", "Jam Session"],
-a: "JavaScript"
+q: "What language dictates the behavior of a webpage",
+choices: ["JavaScript", "HTML", "CSS", "Gary's Special Language"],
+a: "<JavaScript>"
 },
 
 {
-q: "What does JS stand for?",
-choices: ["Just Sayin", "Jelly Sandwich", "Jam Session", "JavaScript"],
-a: "JavaScript"
+q: "Where is the correct place to insert a JavaScript",
+choices: ["Head", "Footer", "Credits", "Body"],
+a: "Body"
 },
 ]
 
