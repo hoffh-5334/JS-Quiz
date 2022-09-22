@@ -9,8 +9,8 @@ Screenshot of webpage
 
 
 ## Repo and Deployed Links
-Repository link: 
-Deployed link: 
+Repository link: https://github.com/hoffh-5334/JavaScript-Quiz
+Deployed link:  https://hoffh-5334.github.io/JavaScript-Quiz/
 
 
 

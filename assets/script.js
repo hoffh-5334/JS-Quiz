@@ -32,7 +32,7 @@ a: "<script>"
 {
 q: "What language dictates the behavior of a webpage",
 choices: ["JavaScript", "HTML", "CSS", "Gary's Special Language"],
-a: "<JavaScript>"
+a: "JavaScript"
 },
 
 {
