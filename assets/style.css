@@ -10,16 +10,33 @@ body{
   color:white;
 }
 
-main{
+
+h1 {
+  border:5px solid rgba(99, 180, 247, 0.94);
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+
+
+
+div.currentScore{
+  font-size: 24px;
   
+}
+
+section{
+  
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
     text-align: center;
     justify-content: center;   
     align-items: center;
-    background-color: rgb(68, 36, 128);
+    background-color: rgb(126, 105, 163);
     color:white;
+
 }
 
 button {

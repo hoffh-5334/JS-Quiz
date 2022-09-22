@@ -1,15 +1,15 @@
-
 //Global variables
-var count = 60;
 var score = 0;
 var i = 0;
-var sampleArray = [4, 5 , 1 ,9 ,8]
+var count = 60;
+var scoreArray;
+
 
 //Selecting DOM elements
 var startButton = document.querySelector("#startButton");
 var timer = document.querySelector("#timer");
 var header = document.querySelector("header");
-var main = document.querySelector("main");
+var section = document.querySelector("section");
 var currentScore = document.querySelector("#score");
 var addScore = document.createElement("input");
 var saveScore = document.createElement("button");
@@ -40,70 +40,67 @@ q: "What does JS stand for?",
 choices: ["Just Sayin", "Jelly Sandwich", "Jam Session", "JavaScript"],
 a: "JavaScript"
 },
-
 ]
 
 
+//function to pull scores out of local storage
+function init(){
+  var pullScore = JSON.parse(localStorage.getItem("highScore"));
+
+    if(!pullScore){
+    scoreArray =[]
+    }else{
+      scoreArray = pullScore
+    }
+  var stringOfScores = JSON.stringify(scoreArray)
+    console.log(stringOfScores);
+    var pullScore2 = JSON.parse(stringOfScores)
+    localStorage.setItem("stringOfScores", pullScore2);
+
+  }
 
 function gameOver() {
   header.innerHTML = "";
-  main.innerHTML = "";
-  main.textContent = "Game Over! Please save your initials"
+  section.innerHTML = "";
+  section.textContent = "Game Over! Please save your initials"
+
+
   saveScore.textContent = "Save Your Score"
   viewScores.textContent = "View  Scores";
   newGame.textContent = "Play Again";
-  main.appendChild(addScore);
-  main.appendChild(saveScore);
-  main.appendChild(viewScores)
-  main.appendChild(newGame);
+  section.appendChild(addScore);
+  section.appendChild(saveScore);
+  section.appendChild(viewScores);
+  section.appendChild(newGame);
+  count = 0;
+
 
 
   saveScore.addEventListener("click", function (event) {
     event.preventDefault();
   
     console.log(addScore.value);
-    // savedHighScore.set(addScore.value);
     localStorage.setItem("initials", addScore.value);
-    localStorage.setItem("highScore", score);
+    localStorage.setItem("viewScore", score);
 
-    //Retrieve high score from local memory and push into array
-
-    
-    var finalScore = {
-      initials: addScore.value,
-      score: score
-    };
-    var savedHighScore = localStorage.getItem("highScore");
-    //   console.log(finalScore);
-    if (savedHighScore === null) {
-      savedHighScore = []
-    } else {
-      savedHighScore = JSON.parse(savedHighScore)
-    }
-    var emptyArray = [];
-    emptyArray.push(finalScore);
-    console.log(emptyArray);
-
-    //savedHighScore.push(finalScore);
-    console.log(savedHighScore);
   })
 
-  newGame.addEventListener("click", function(event){
+
+  newGame.addEventListener("click", function (event) {
     document.location.reload(true);
   })
 
-  viewScores.addEventListener("click", function(event){
+  viewScores.addEventListener("click", function (event) {
 
-    // need to actually create high score array instead of SampleArray
-    var topScore = Math.max(savedHighScore);
-    console.log(sampleArray);
-    console.log(indexOfHighestValue);
-    alert("The high score is:  " + topScore);
+    // We want it to retrieve the array and find high score
+    //var HighestValue = Math.max(...arrayOfScores);
+    alert("The high score is:  " + scoreArray);
 
 
   })
 
 }
+    
 
 
 //quiz
@@ -123,8 +120,8 @@ function quizQuestionPrompt() {
   answer3.textContent = questions[i].choices[2];
   answer4.textContent = questions[i].choices[3];
 
-  main.appendChild(quizQuestion);
-  main.appendChild(quizAnswer);
+  section.appendChild(quizQuestion);
+  section.appendChild(quizAnswer);
   quizAnswer.appendChild(answer1);
   quizAnswer.appendChild(answer2);
   quizAnswer.appendChild(answer3);
@@ -143,7 +140,7 @@ function quizQuestionPrompt() {
     }
 
     i++;
-    main.innerHTML = "";
+    section.innerHTML = "";
 
     if (i > questions.length - 1) {
 
@@ -169,7 +166,6 @@ function countdownTimer() {
       clearInterval(timerInterval);
       count = 0;
     }
-  
     timer.textContent = count;
 
   }, 1000);
@@ -177,16 +173,17 @@ function countdownTimer() {
 
 
 
-// Start button to start game
+//pulls high scores
+init();
 
+// Start button to start game
 startButton.addEventListener("click", function () {
   header.innerHTML = ""            
   countdownTimer(); 
   quizQuestionPrompt();
   
+  
 
 
 });
-
-
 
