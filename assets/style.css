@@ -1,0 +1,27 @@
+body{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  text-align: center;
+  justify-content: center;   
+  align-items: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(89, 68, 122);
+  color:white;
+
+}
+
+button {
+  background-color: rgba(99, 180, 247, 0.94);
+}
+
+button:hover{
+  box-shadow: 2px 1px 3px white;
+}
+
+.timeRemaining {
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(0, 108, 250);
+  font-size: 2em;
+}
